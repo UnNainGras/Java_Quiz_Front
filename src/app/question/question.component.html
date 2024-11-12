@@ -1,0 +1,8 @@
+<div class="question-list">
+  <h2>Liste des Questions</h2>
+  <ul>
+    <li *ngFor="let question of questions">
+      Question: {{ question.question }} - Réponse correcte: {{ question.reponseCorrecte }}
+    </li>
+  </ul>
+</div>

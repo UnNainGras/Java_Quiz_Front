@@ -1,0 +1,27 @@
+<div class="quiz-container">
+  <h2>Quiz</h2>
+
+  <div *ngIf="questions && questions.length > 0; else loading">
+    <div *ngFor="let question of questions; let i = index" class="question-block">
+      <p><strong>{{ i + 1 }}. {{ question.questionText }}</strong></p>
+      <div *ngFor="let answer of question.answers">
+        <input
+          type="radio"
+          [name]="'question' + i"
+          [value]="answer"
+          (change)="onAnswerSelect(i, answer)"
+        />
+        {{ answer }}
+      </div>
+    </div>
+    <button (click)="submitQuiz()">Submit Quiz</button>
+  </div>
+
+  <ng-template #loading>
+    <p>Loading questions...</p>
+  </ng-template>
+
+  <div *ngIf="score !== null">
+    <h3>Your Score: {{ score }}/{{ questions.length }}</h3>
+  </div>
+</div>

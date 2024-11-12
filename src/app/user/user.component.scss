@@ -1,0 +1,14 @@
+.user-list {
+  h2 {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+}
