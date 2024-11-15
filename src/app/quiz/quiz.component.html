@@ -3,8 +3,8 @@
 
   <div *ngIf="questions && questions.length > 0; else loading">
     <div *ngFor="let question of questions; let i = index" class="question-block">
-      <p><strong>{{ i + 1 }}. {{ question.questionText }}</strong></p>
-      <div *ngFor="let answer of question.answers">
+      <p><strong>{{ i + 1 }}. {{ question.question }}</strong></p>
+      <div *ngFor="let answer of question.reponses">
         <input
           type="radio"
           [name]="'question' + i"
