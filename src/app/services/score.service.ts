@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 export interface ScoreDTO {
   id: number;
   score: number;
+  date: string;
+  userId: number;
 }
 
 @Injectable({
@@ -23,7 +25,7 @@ export class ScoreService {
     return this.http.get<ScoreDTO>(`${this.baseUrl}/${id}`);
   }
 
-  createScore(score: ScoreDTO): Observable<ScoreDTO> {
+  createScore(score: Omit<ScoreDTO, 'id'>): Observable<ScoreDTO> {
     return this.http.post<ScoreDTO>(this.baseUrl, score);
   }
 

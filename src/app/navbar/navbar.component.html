@@ -1,6 +1,6 @@
-<nav>
+<nav *ngIf="!isHidden">
   <div>
-    <img src="assets/logo-epf.png" routerLink="">
+    <img src="assets/logo-epf.png" routerLink="/home">
     <mat-nav-list>
       <a mat-list-item routerLink="{{link.href}}" routerLinkActive="active"
          *ngFor="let link of links">{{ link.name }}</a>

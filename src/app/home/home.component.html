@@ -1,30 +1,43 @@
 <div class="left">
-  <span class="title">Bonjour à toi jeune Peufien !</span>
-  <p>Nous sommes heureux de t'accueillir pour ce cours de Java Spring Angular !
+  <span class="title">Bonjour à vous grands Takimiens !</span>
+  <div *ngIf="authenticatedUser">
+    <p>Connecté en tant que utilisateur : {{ authenticatedUser.nom }}</p>
+    <p>Veuillez rafraichir la page si vous venez de vous connecter.</p>
+    <button (click)="logout()">Déconnexion</button>
+  </div>
+  <div *ngIf="authenticatedAdmin">
+    <p>Connecté en tant qu'admin : {{ authenticatedAdmin.nom }}</p>
+    <p>Veuillez rafraichir la page si vous venez de vous connecter.</p>
+    <button (click)="logout()">Déconnexion</button>
+  </div>
+  <div *ngIf="!authenticatedUser && !authenticatedAdmin">
+    <p>Vous n'êtes pas connecté. Veuillez vous connecter en tant qu'utilisateur ou administrateur.</p>
+  </div>
+  <p>Nous sommes heureux de requisitionner cette page d'accueil merveilleusement faite par vos soins !
     <img src="assets/soleil.gif" class="sun">
   </p>
-  <span class="title">Comment se passe ce cours : </span>
+  <span class="title">Comment se passe cette visite : </span>
   <div class="card-group">
     <div class="card">
       <img class="card-img-top" src="assets/img1.png" alt="Card image cap">
       <div class="card-body">
-        <p class="card-text">Tu réalises un projet from scratch</p>
+        <p class="card-text">Tu te balade sur ce site et y testes tes connaissances.</p>
       </div>
     </div>
     <div class="card">
       <img class="card-img-top" src="assets/img2.png" alt="Card image cap">
       <div class="card-body">
-        <p class="card-text">Tu as un max de fun en travaillant en équipe!</p>
+        <p class="card-text">Tu reponds aux questions disponibles sur l'onglet quiz !</p>
       </div>
     </div>
     <div class="card">
       <img class="card-img-top" src="assets/img3.png" alt="Card image cap">
       <div class="card-body">
-        <p class="card-text">Tes profs sont prêts à voler à ton secours à tout moment !</p>
+        <p class="card-text">Tu ajoutes des questions en tant qu'admin !</p>
       </div>
     </div>
   </div>
-  <p>Nous sommes là pour t'aider et t'accompagner pendant 4 journées de TP. N'hésite pas si tu as la moindre question
+  <p>Merci pour votre accompagnement :)
     ! </p>
 </div>
 <div class="right">

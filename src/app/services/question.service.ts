@@ -24,7 +24,7 @@ export class QuestionService {
     return this.http.get<QuestionDTO>(`${this.baseUrl}/${id}`);
   }
 
-  createQuestion(question: QuestionDTO): Observable<QuestionDTO> {
+  createQuestion(question: Omit<QuestionDTO, 'id'>): Observable<QuestionDTO> {
     return this.http.post<QuestionDTO>(this.baseUrl, question);
   }
 

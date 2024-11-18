@@ -5,23 +5,47 @@
     <div *ngFor="let question of questions; let i = index" class="question-block">
       <p><strong>{{ i + 1 }}. {{ question.question }}</strong></p>
       <div *ngFor="let answer of question.reponses">
-        <input
-          type="radio"
-          [name]="'question' + i"
-          [value]="answer"
-          (change)="onAnswerSelect(i, answer)"
-        />
-        {{ answer }}
+        <label>
+          <input
+            type="radio"
+            [name]="'question' + i"
+            [value]="answer"
+            (change)="onAnswerSelect(i, answer)"
+            [checked]="selectedAnswers[i] === answer"
+          />
+          {{ answer }}
+        </label>
       </div>
     </div>
-    <button (click)="submitQuiz()">Submit Quiz</button>
+
+    <button
+      class="submit-button"
+      (click)="submitQuiz()"
+    >
+      Valider le Quiz
+    </button>
   </div>
 
   <ng-template #loading>
-    <p>Loading questions...</p>
+    <p>Chargement des questions...</p>
   </ng-template>
 
-  <div *ngIf="score !== null">
-    <h3>Your Score: {{ score }}/{{ questions.length }}</h3>
+  <div *ngIf="score !== null" class="score-section">
+    <h3>Voici ton score : {{ score }}/{{ questions.length }}</h3>
+    <p *ngIf="score === questions.length" class="success-message">
+      🎉 Bravo, tu as répondu correctement à toutes les questions !
+    </p>
+    <p *ngIf="score < questions.length" class="improvement-message">
+      🔄 Tu peux encore t'améliorer. Reviens essayer !
+    </p>
+
+    <div *ngIf="score !== null">
+      <p class="save-success" *ngIf="scoreSaved">
+        ✅ Ton score a été enregistré avec succès !
+      </p>
+      <p class="save-error" *ngIf="!scoreSaved && saveError">
+        ❌ Une erreur est survenue lors de l'enregistrement de ton score.
+      </p>
+    </div>
   </div>
 </div>

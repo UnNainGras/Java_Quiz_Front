@@ -7,19 +7,16 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { NavbarComponent } from "navbar/navbar.component"
 import { MatListModule } from "@angular/material/list"
 import { HomeComponent } from "home/home.component"
-import { StudentsComponent } from "students/students.component"
-import { StudentDetailsComponent } from "students/student-details/student-details.component"
-import { FormsModule } from "@angular/forms"
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { MatIconModule } from "@angular/material/icon"
 import { MatButtonModule } from "@angular/material/button"
-import { MajorsComponent } from "majors/majors.component"
-import { MajorStudentsComponent } from "majors/major-students/major-students.component"
 import { HttpClientModule } from "@angular/common/http"
 import { QuizComponent } from "./quiz/quiz.component";
 import {UserComponent} from "./user/user.component";
 import {ScoreComponent} from "./score/score.component";
 import {QuestionComponent} from "./question/question.component";
 import {AdminComponent} from "./admin/admin.component";
+import { AddQuestionComponent } from './add-question/add-question.component';
 
 @NgModule({
   declarations: [
@@ -31,10 +28,7 @@ import {AdminComponent} from "./admin/admin.component";
     AdminComponent,
     NavbarComponent,
     HomeComponent,
-    StudentsComponent,
-    StudentDetailsComponent,
-    MajorsComponent,
-    MajorStudentsComponent,
+    AddQuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +39,7 @@ import {AdminComponent} from "./admin/admin.component";
     MatIconModule,
     MatButtonModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

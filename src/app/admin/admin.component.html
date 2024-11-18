@@ -1,6 +1,12 @@
-<div class="admin-list">
-  <h2>Liste des Admins</h2>
-  <ul>
-    <li *ngFor="let admin of admins">{{ admin.nom }} ({{ admin.email }})</li>
-  </ul>
+<div class="login-form">
+  <h2>Connexion Admin</h2>
+  <form (ngSubmit)="login()">
+    <label for="emailOrNom">Nom ou Email :</label>
+    <input id="emailOrNom" type="text" [(ngModel)]="emailOrNom" name="emailOrNom" required />
+    <small>Pour tester : rentrez "admin"</small>
+
+    <button type="submit">Se connecter</button>
+  </form>
+
+  <button (click)="goToUserLogin()">Retour à la Connexion Utilisateur</button>
 </div>
